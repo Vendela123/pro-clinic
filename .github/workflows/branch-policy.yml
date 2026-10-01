@@ -1,0 +1,25 @@
+name: Branch policy
+on:
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  validate-source-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce merge rules
+        run: |
+          BASE="${{ github.base_ref }}"
+          HEAD="${{ github.head_ref }}"
+          echo "Source branch: $HEAD -> target branch: $BASE"
+          if [ "$BASE" = "main" ]; then
+            if [ "$HEAD" != "develop" ]; then
+              echo "::error::Only 'develop' may be merged into main (got '$HEAD')."
+              exit 1
+            fi
+          elif [ "$BASE" = "develop" ]; then
+            case "$HEAD" in
+              feature/*) echo "OK: $HEAD -> develop" ;;
+              *) echo "::error::Only 'feature/*' may be merged into develop (got '$HEAD')."; exit 1 ;;
+            esac
+          fi
