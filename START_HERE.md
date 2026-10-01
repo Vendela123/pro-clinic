@@ -9,7 +9,7 @@ order that works: get the foundation working, then connect the accounts, then st
 
 ### How the commands work
 
-Everything written as `/something` in this guide — `/start`, `/createspec`, `/clarify`,
+Everything written as `/something` in this guide — `/createspec`, `/clarify`,
 `/implement`, `/analyze`, `/push`, `/pr-check`, `/security` — is a file in
 [`.claude/commands/`](.claude/commands), not a program on your machine.
 **Claude Code, Copilot and Codex** all run them — the last two through the pointers in
@@ -32,31 +32,11 @@ That is the only thing you install by hand. Git, this project's runtime, its pac
 and the CLI for your repository host are all step 1 of the command below — you do not need
 any of them before you start.
 
-Then open Claude Code in this repository and run:
+The stack is scaffolded locally, Git is initialised for this repository, and Pro Clinic runs on this
+machine. The account-backed setup in section 2 still needs a human with access to the right services,
+and everything after that goes through the spec loop in section 4.
 
-```
-/start
-```
-
-It works through six steps and prints a progress bar after each one, so you can see where it is:
-
-- **1 · Tools** — checks for git, this stack's runtime and the GitHub CLI (`gh`), and installs only
-  what is missing. It signs in to nothing.
-- **2 · Stack** — the framework and the toolchain, so the four commands below are real.
-- **3 · Git** — a local repository on `main`, plus `develop` and your first `feature/<name>`.
-- **4 · The first screen** — Pro Clinic's core action, built and finished.
-- **5 · Verify** — every command run, with its real output shown.
-- **6 · Hand back** — this step rewritten, and the command removed.
-
-It leaves you the smallest version of Pro Clinic that actually runs — enough to open, change
-and continue from, and no more. Beyond installing those tools it touches nothing outside this
-directory: no accounts, no services, no secrets, and nothing you have to sign in to.
-
-Safe to run again if it stops early. Once it has finished and verified the result, it rewrites this
-step to say so and removes itself — there is nothing left for it to do, and everything after it goes
-through the loop in section 5.
-
-When it finishes, these are real commands:
+These are the real commands you use from here:
 
 ```bash
 pnpm dev        # start the dev server
@@ -77,9 +57,9 @@ the steps below are the short version.
 1. Provision a **No database for the core website content. Use a simple database only where needed for newsletter subscribers, contact/appointment requests and future editable content such as treatments, prices, offer** instance and note its connection string.
 2. Copy `.env.example` to `.env.local` and fill in the connection string (server-side only — never expose it to the browser).
 3. Apply the database migrations; every schema change from here is a committed migration, never a hand-edit.
-4. Create an empty repository on GitHub and push this foundation, including the `develop` branch `/start` created.
+4. Create an empty repository on GitHub and push this foundation, including the local `develop` branch that was created for the project.
 5. **Protect `main` and `develop`** (Settings → Branches): require a pull request and a passing CI check. The workflows in `.github/workflows/` run on their own once pushed.
-6. **Sign in:** `gh auth login`, so the spec commands can read issues and open pull requests. `/start` installed the GitHub CLI (`gh`) for you — install it yourself only if it reported that it could not.
+6. **Sign in:** `gh auth login`, so the spec commands can read issues and open pull requests. The GitHub CLI (`gh`) is installed for this machine and ready to use.
 7. Create the Vercel project you will deploy to, and put the credentials in GitHub repository secrets (Settings → Secrets and variables → Actions).
 
 Branch direction is strict and never skipped —
