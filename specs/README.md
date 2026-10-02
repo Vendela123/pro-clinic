@@ -24,3 +24,7 @@ These are the capabilities chosen in the interview. Each one is a spec waiting t
 `/createspec` for the one you need next and the command scaffolds `specs/NNN-kort.md` for you.
 
 Home page: hero section, featured treatments carousel, call-to-action buttons for booking, overview of salon values. Treatment directory: filterable by category (skincare, massage, laser, lashes, brows, hair), each treatment displays name, description, duration, price, and contact button. Team page: professional photos and bios of practitioners. Offers page: calendar view or list of current promotions. Contact/Book page: form capturing name, email, phone, preferred service and date-time preference; submissions trigger email confirmation to client and notification to salon. Admin dashboard: password-protected area allowing salon staff to add/edit treatments, manage pricing, publish offers, and view booking requests. Site-wide search bar returning treatment results by name or category.
+
+## Completed
+
+- [001 — Swedish-first public website foundation](001-swedish-public-foundation.md) — Swedish-first public homepage, English `/en/` route, localized navigation, five linked treatment areas with supplied treatment content, direct contact actions, responsive visual foundation, and SEO metadata.
