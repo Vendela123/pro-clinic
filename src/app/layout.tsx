@@ -14,9 +14,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pro Clinic | Skönhet, massage och personlig vård",
+  title: "Pro Clinic | Skönhets- och wellnessalong",
   description:
-    "Pro Clinic erbjuder behandlingar inom skönhet, massage, fotvård, laser och hårvård i Göteborg.",
+    "Pro Clinic är en skönhets- och wellnessalong med personlig service och behandlingar.",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "sv-SE": "/",
+      en: "/en/",
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -25,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="sv"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-stone-50 text-stone-900">
+      <body className="min-h-full">
         {children}
       </body>
     </html>

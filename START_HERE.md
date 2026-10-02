@@ -23,14 +23,6 @@ Everything written as `/something` in this guide — `/createspec`, `/clarify`,
 
 ## 1. Get it running
 
-**First, install [Claude Code](https://docs.claude.com/en/docs/claude-code)** — it is what reads
-and runs every `/command` in this guide, and this foundation is written for it. Follow its own
-install page and sign in when it asks; if you already have Node 20 or newer,
-`npm install -g @anthropic-ai/claude-code` does the same job.
-
-That is the only thing you install by hand. Git, this project's runtime, its package manager
-and the CLI for your repository host are all step 1 of the command below — you do not need
-any of them before you start.
 
 The stack is scaffolded locally, Git is initialised for this repository, and Pro Clinic runs on this
 machine. The account-backed setup in section 2 still needs a human with access to the right services,
