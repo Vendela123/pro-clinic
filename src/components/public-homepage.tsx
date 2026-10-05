@@ -75,7 +75,7 @@ const copy: Record<Locale, Copy> = {
     },
     hero: {
       eyebrow: "Skönhet och välbefinnande",
-      title: "En lugnare väg till att känna dig som dig själv.",
+      title: "Pro Clinic",
       text: "Pro Clinic är en skönhets- och wellnessalong med utrymme för omsorg, återhämtning och personlig service.",
       primaryCta: "Upptäck behandlingar",
       secondaryCta: "Kontakta salongen",
