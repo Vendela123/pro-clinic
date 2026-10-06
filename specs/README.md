@@ -28,3 +28,8 @@ Home page: hero section, featured treatments carousel, call-to-action buttons fo
 ## Completed
 
 - [001 — Swedish-first public website foundation](001-swedish-public-foundation.md) — Swedish-first public homepage, English `/en/` route, localized navigation, five linked treatment areas with supplied treatment content, direct contact actions, responsive visual foundation, and SEO metadata.
+- [002 — Add treatment image](002-add-treatment-image.md) — Adds the facial-treatment image to the English Skincare card.
+
+## In progress
+
+- [003 — Treatment area images](003-treatment-area-images.md) — Shows the matching existing treatment image on all Swedish and English treatment-area pages.

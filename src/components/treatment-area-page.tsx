@@ -1,9 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { treatmentAreaImages } from "@/components/treatment-area-images";
 
 type Locale = "sv" | "en";
-type AreaSlug = "hudvard" | "massage" | "fotvard" | "fransar-bryn" | "harborttagning";
+type AreaSlug = keyof typeof treatmentAreaImages;
 
 type Treatment = {
   name: string;
@@ -19,6 +21,8 @@ type AreaContent = {
   back: string;
   cta: string;
   imageLabel: string;
+  imageSrc: string;
+  imageAlt: string;
   sectionTitle: string;
   treatments: Treatment[];
   note?: string;
@@ -75,6 +79,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Tillbaka till behandlingar",
       cta: "Kontakta salongen",
       imageLabel: "Bildplaceholder: Hudvård",
+      imageSrc: treatmentAreaImages.hudvard.src,
+      imageAlt: treatmentAreaImages.hudvard.alt.sv,
       sectionTitle: "Ansiktsbehandling",
       treatments: swedishTreatments.hudvard,
       cancellationPolicy,
@@ -86,6 +92,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Tillbaka till behandlingar",
       cta: "Kontakta salongen",
       imageLabel: "Bildplaceholder: Massage",
+      imageSrc: treatmentAreaImages.massage.src,
+      imageAlt: treatmentAreaImages.massage.alt.sv,
       sectionTitle: "Massage",
       treatments: swedishTreatments.massage,
       cancellationPolicy,
@@ -97,6 +105,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Tillbaka till behandlingar",
       cta: "Kontakta salongen",
       imageLabel: "Bildplaceholder: Fotvård",
+      imageSrc: treatmentAreaImages.fotvard.src,
+      imageAlt: treatmentAreaImages.fotvard.alt.sv,
       sectionTitle: "Fotvård",
       treatments: swedishTreatments.fotvard,
       cancellationPolicy,
@@ -108,6 +118,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Tillbaka till behandlingar",
       cta: "Kontakta salongen",
       imageLabel: "Bildplaceholder: Fransar & bryn",
+      imageSrc: treatmentAreaImages["fransar-bryn"].src,
+      imageAlt: treatmentAreaImages["fransar-bryn"].alt.sv,
       sectionTitle: "Färgning av fransar & bryn",
       treatments: swedishTreatments["fransar-bryn"],
       note: "Vid färgning av fransar & bryn i samband med annan behandling ges rabatt på färgningen.",
@@ -120,6 +132,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Tillbaka till behandlingar",
       cta: "Kontakta salongen",
       imageLabel: "Bildplaceholder: Hårborttagning",
+      imageSrc: treatmentAreaImages.harborttagning.src,
+      imageAlt: treatmentAreaImages.harborttagning.alt.sv,
       sectionTitle: "Vaxning",
       treatments: swedishTreatments.harborttagning,
       cancellationPolicy,
@@ -133,6 +147,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Back to treatments",
       cta: "Contact the salon",
       imageLabel: "Image placeholder: Skincare",
+      imageSrc: treatmentAreaImages.hudvard.src,
+      imageAlt: treatmentAreaImages.hudvard.alt.en,
       sectionTitle: "Facial treatment",
       treatments: swedishTreatments.hudvard,
       cancellationPolicy,
@@ -144,6 +160,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Back to treatments",
       cta: "Contact the salon",
       imageLabel: "Image placeholder: Massage",
+      imageSrc: treatmentAreaImages.massage.src,
+      imageAlt: treatmentAreaImages.massage.alt.en,
       sectionTitle: "Massage",
       treatments: swedishTreatments.massage,
       cancellationPolicy,
@@ -155,6 +173,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Back to treatments",
       cta: "Contact the salon",
       imageLabel: "Image placeholder: Foot care",
+      imageSrc: treatmentAreaImages.fotvard.src,
+      imageAlt: treatmentAreaImages.fotvard.alt.en,
       sectionTitle: "Foot care",
       treatments: swedishTreatments.fotvard,
       cancellationPolicy,
@@ -166,6 +186,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Back to treatments",
       cta: "Contact the salon",
       imageLabel: "Image placeholder: Lashes & brows",
+      imageSrc: treatmentAreaImages["fransar-bryn"].src,
+      imageAlt: treatmentAreaImages["fransar-bryn"].alt.en,
       sectionTitle: "Lash & brow colouring",
       treatments: swedishTreatments["fransar-bryn"],
       cancellationPolicy,
@@ -177,6 +199,8 @@ const areas: Record<Locale, Record<AreaSlug, AreaContent>> = {
       back: "Back to treatments",
       cta: "Contact the salon",
       imageLabel: "Image placeholder: Hair removal",
+      imageSrc: treatmentAreaImages.harborttagning.src,
+      imageAlt: treatmentAreaImages.harborttagning.alt.en,
       sectionTitle: "Waxing",
       treatments: swedishTreatments.harborttagning,
       cancellationPolicy,
@@ -218,8 +242,8 @@ export function TreatmentAreaPage({ locale, slug }: { locale: Locale; slug: Area
             <h1>{content.title}</h1>
             <Link className="button button--dark" href={isSwedish ? "/contact" : "/en/contact"}>{content.cta}<ArrowUpRight size={17} strokeWidth={1.7} /></Link>
           </div>
-          <div className="treatment-area-hero__visual visual-placeholder" role="img" aria-label={content.imageLabel}>
-            <div className="visual-placeholder__wash" />
+          <div className="treatment-area-hero__visual visual-placeholder" role="img" aria-label={content.imageAlt}>
+            <Image className="treatment-card__image" src={content.imageSrc} alt={content.imageAlt} width={600} height={660} loading="eager" unoptimized />
             <span className="treatment-area-hero__visual-label">{content.imageLabel}</span>
           </div>
         </section>
