@@ -344,3 +344,36 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -.02em; }
   .site-footer__contact { align-items: flex-start; }
   .site-footer__bottom { flex-direction: column; gap: 8px; }
 }
+
+
+.location-map {
+  width: 100%;
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #e7e2d8;
+}
+
+.location-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  border: 0;
+}
+
+.location-address {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .location-map {
+    min-height: 300px;
+  }
+
+  .location-map iframe {
+    min-height: 300px;
+  }
+}

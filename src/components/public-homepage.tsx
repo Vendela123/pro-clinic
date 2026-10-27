@@ -57,14 +57,14 @@ const copy: Record<Locale, Copy> = {
     navigation: {
       treatments: "Behandlingar",
       about: "Om oss / Team",
-      offers: "Erbjudanden",
+      offers: "Hitta hit",
       contact: "Kontakt",
       menu: "Öppna meny",
     },
     hero: {
       eyebrow: "Skönhet och välbefinnande",
       title: "Pro Clinic",
-      text: "Pro Clinic är en skönhets- och wellnessalong med utrymme för omsorg, återhämtning och personlig service.",
+      text: "På Pro Clinic hittar du behandlingar för både skönhet och välbefinnande. Vi erbjuder allt från hudvård och massage till fotvård, fransar och bryn samt hårborttagning.",
       primaryCta: "Upptäck behandlingar",
       secondaryCta: "Kontakta salongen",
       visualLabel: "Visuell placeholder",
@@ -96,7 +96,7 @@ const copy: Record<Locale, Copy> = {
       },
     footer: {
       description: "Skönhets- och wellnessalong",
-      placeholder: "[Adress och öppettider placeholder]",
+      placeholder: "Uggledalsvägen 15, 427 40 Billdal",
       copyright: "© Pro Clinic",
     },
   },
@@ -157,12 +157,16 @@ const copy: Record<Locale, Copy> = {
       cta: "View treatments",
     },
     whySection: {
-      eyebrow: "About Pro Clinic",
-      title: "A warm and professional experience, at your pace.",
-      text: "Pro Clinic's approved story, values and team information will live here. Until then, this space remains a clearly marked content placeholder.",
-      points: ["[Values placeholder 01]", "[Values placeholder 02]", "[Values placeholder 03]"],
-      visualLabel: "Image placeholder",
-    },
+     eyebrow: "About Pro Clinic",
+     title: "Beauty and wellbeing with you in focus.",
+     text: "At Pro Clinic, we offer treatments in skincare, massage, foot care, lashes and brows, and hair removal. Our aim is to provide a personal and welcoming experience.",
+     points: [
+       "Personal service",
+       "Beauty and wellbeing",
+       "Care with you in focus"
+     ],
+     visualLabel: "Pro Clinic",
+   },
     footer: {
       description: "Beauty and wellness salon",
       placeholder: "[Address and opening hours placeholder]",
@@ -218,7 +222,6 @@ export function PublicHomepage({ locale }: { locale: Locale }) {
               <a className="button button--dark" href="#treatments">{content.hero.primaryCta}<ArrowUpRight size={17} strokeWidth={1.7} /></a>
               <Link className="button button--outline" href={contactHref}>{content.hero.secondaryCta}</Link>
             </div>
-            <div className="hero__footnote"><span className="hero__dot" />{isSwedish ? "En offentlig hemsida under uppbyggnad" : "A public website foundation in progress"}</div>
           </div>
          <div className="hero-visual">
             <Image
@@ -268,15 +271,69 @@ export function PublicHomepage({ locale }: { locale: Locale }) {
 
         <section id="about" className="section section--dark">
           <div className="page-width why-grid">
-            <div className="why-visual visual-placeholder" role="img" aria-label={content.whySection.visualLabel}><div className="visual-placeholder__wash" /><span className="why-visual__label">{content.whySection.visualLabel}</span></div>
-            <div className="why-content"><p className="eyebrow eyebrow--light">{content.whySection.eyebrow}</p><h2>{content.whySection.title}</h2><p className="why-content__text">{content.whySection.text}</p><div className="value-list">{content.whySection.points.map((point, index) => <div className="value-list__item" key={point}><span>0{index + 1}</span><strong>{point}</strong></div>)}</div><Link className="text-link text-link--light" href={contactHref}>{content.navigation.contact}<ArrowUpRight size={17} strokeWidth={1.6} /></Link></div>
+          <div className="why-visual">
+            <Image
+              src="/images/skincare.jpg"
+              alt={isSwedish ? "Pro Clinic" : "Pro Clinic beauty salon"}
+              width={800}
+              height={1000}
+              className="why-visual__image"
+            />
+          </div>            
+          <div className="why-content"><p className="eyebrow eyebrow--light">{content.whySection.eyebrow}</p><h2>{content.whySection.title}</h2><p className="why-content__text">{content.whySection.text}</p><div className="value-list">{content.whySection.points.map((point, index) => <div className="value-list__item" key={point}><strong>{point}</strong></div>)}</div><Link className="text-link text-link--light" href={contactHref}>{content.navigation.contact}<ArrowUpRight size={17} strokeWidth={1.6} /></Link></div>
           </div>
         </section>
 
-        <section id="offers" className="section page-width offer-section">
-          <div className="offer-section__copy"><p className="eyebrow">{content.navigation.offers}</p><h2>{isSwedish ? "En plats för nästa steg." : "A place for your next step."}</h2><p>{isSwedish ? "Aktuellt innehåll och erbjudanden publiceras här när Pro Clinics godkända information finns på plats." : "Current content and offers will appear here when Pro Clinic's approved information is ready."}</p></div>
-          <div className="offer-placeholder visual-placeholder"><span>{isSwedish ? "Erbjudande placeholder" : "Offer placeholder"}</span><small>{isSwedish ? "Inget erbjudande publicerat ännu" : "No offer published yet"}</small></div>
-        </section>
+       
+<section id="offers" className="section page-width offer-section">
+  <div className="offer-section__copy">
+    <p className="eyebrow">
+      {isSwedish ? "HITTA TILL OSS" : "FIND US"}
+    </p>
+
+    <h2>
+      {isSwedish
+        ? "Välkommen till Pro Clinic."
+        : "Welcome to Pro Clinic."}
+    </h2>
+
+    <p>
+      {isSwedish
+        ? "Du hittar oss på Uggledalsvägen 15 i Billdal. Välkommen till oss!"
+        : "You can find us at Uggledalsvägen 15 in Billdal. We look forward to welcoming you!"}
+    </p>
+
+    <p className="location-address">
+      Uggledalsvägen 15
+      <br />
+      427 40 Billdal
+    </p>
+
+    <a
+      className="button button--dark"
+      href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x464feda5ae75a79f:0x97e4066e4fe625ab?sa=X&ved=1t:8290&ictx=111"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {isSwedish ? "Hitta hit" : "Get directions"}
+      <ArrowUpRight size={17} strokeWidth={1.7} />
+    </a>
+  </div>
+
+  <div className="location-map">
+    <iframe
+      title={isSwedish ? "Karta till Pro Clinic" : "Map to Pro Clinic"}
+      src="https://www.google.com/maps?q=Uggledalsv%C3%A4gen%2015%2C%20427%2040%20Billdal&output=embed"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      loading="lazy"
+      allowFullScreen
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+  </div>
+</section>
+
 
       </main>
 
