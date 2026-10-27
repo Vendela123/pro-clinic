@@ -13,7 +13,7 @@ type ContactCard = {
 
 const contactCards: ContactCard[] = [
   {
-    name: "Christine ",
+    name: "Christine",
     services: {
       sv: ["Hudvård", "Vaxning / Hårborttagning", "Fransar & bryn"],
       en: ["Skincare", "Waxing / Hair removal", "Lashes & brows"],
