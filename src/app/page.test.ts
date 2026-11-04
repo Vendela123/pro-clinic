@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { treatmentAreaImages } from "../components/treatment-area-images";
 
@@ -5,6 +7,16 @@ describe("Pro Clinic homepage smoke test", () => {
   it("contains the core brand and main intent", () => {
     expect("Pro Clinic").toContain("Pro");
     expect("Behandlingar").toContain("Be");
+  });
+
+  it("does not include the removed homepage banner or treatment indexes", () => {
+    const homepageSource = readFileSync(
+      fileURLToPath(new URL("../components/public-homepage.tsx", import.meta.url)),
+      "utf8",
+    );
+
+    expect(homepageSource).not.toContain("En tydlig början för dig som vill hitta rätt behandling och rätt kontaktväg.");
+    expect(homepageSource).not.toContain("card-index");
   });
 });
 

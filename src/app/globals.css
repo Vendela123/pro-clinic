@@ -234,10 +234,6 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -.02em; }
 .visual-placeholder__caption small { color: #55564f; font-size: 11px; }
 .visual-placeholder__stamp { position: absolute; top: 28px; right: 28px; color: rgb(36 35 31 / 60%); }
 
-.intro-band { border-block: 1px solid var(--line); background: var(--paper-deep); }
-.intro-band__inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 26px; }
-.intro-band p { max-width: 610px; margin: 0; color: #4d5048; font-family: var(--font-display); font-size: 23px; line-height: 1.3; }
-
 .section { padding-top: clamp(90px, 11vw, 150px); padding-bottom: clamp(90px, 11vw, 150px); }
 .section-heading { margin-bottom: 60px; }
 .section-heading--split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
@@ -251,7 +247,6 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -.02em; }
 .treatment-card__visual span { position: absolute; bottom: 14px; left: 16px; color: rgb(36 35 31 / 60%); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
 .treatment-card__visual strong { position: absolute; right: 16px; bottom: 14px; color: rgb(36 35 31 / 60%); font-size: 10px; font-weight: 400; letter-spacing: .1em; }
 .treatment-card__body { position: relative; }
-.card-index { color: var(--accent); font-size: 10px; letter-spacing: .15em; }
 .treatment-card h3 { margin: 18px 0 12px; }
 .treatment-card p { min-height: 48px; margin-bottom: 20px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .treatment-card__cta, .site-footer__contact > a { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
@@ -328,7 +323,6 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -.02em; }
   .treatment-area-hero { display: flex; flex-direction: column; align-items: stretch; padding-top: 66px; padding-bottom: 74px; }
   .treatment-area-back { margin-bottom: 44px; }
   .treatment-area-hero__visual { min-height: 390px; }
-  .intro-band p { font-size: 20px; }
   .section-heading--split, .why-grid, .offer-section, .contact-grid { grid-template-columns: 1fr; gap: 34px; }
   .section-heading { margin-bottom: 42px; }
   .section-heading--split > p { margin-bottom: 0; }
