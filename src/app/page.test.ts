@@ -18,6 +18,17 @@ describe("Pro Clinic homepage smoke test", () => {
     expect(homepageSource).not.toContain("En tydlig början för dig som vill hitta rätt behandling och rätt kontaktväg.");
     expect(homepageSource).not.toContain("card-index");
   });
+
+  it("uses a shared cover layout for treatment images without banner spacing", () => {
+    const styles = readFileSync(
+      fileURLToPath(new URL("./globals.css", import.meta.url)),
+      "utf8",
+    );
+
+    expect(styles).toContain("#treatments.section { padding-top: 0; }");
+    expect(styles).toContain(".treatment-card__image { display: block; width: 100%; height: 100%; object-fit: cover; }");
+    expect(styles).not.toContain(".intro-band");
+  });
 });
 
 describe("treatment area images", () => {

@@ -4,7 +4,7 @@
 
 |                |                                      |
 | -------------- | ------------------------------------ |
-| **Status**     | 🔄 In progress                       |
+| **Status**     | ✅ Complete                          |
 | **Issue**      | #TBD [NEEDS CLARIFICATION: assign issue #] — "Homepage cleanup" |
 | **Branch**     | `004-homepage-cleanup` (from `feature/pro-clinic-foundation`) |
 | **Feature**    | Homepage treatment discovery          |
@@ -36,10 +36,12 @@ Remove the banner markup and its dedicated styles, along with the treatment card
 
 ## Acceptance criteria
 
-- [ ] The homepage no longer renders the Swedish or English introductory banner text, background, or chevron.
-- [ ] The homepage no longer renders `01`, `02`, `03`, `04`, or `05` beneath treatment images.
-- [ ] All treatment images, titles, links, CTA labels, and layout remain unchanged.
-- [ ] Typecheck passes; lint adds no new issues; tests green.
+- [x] The homepage no longer renders the Swedish or English introductory banner text, background, or chevron.
+- [x] The homepage no longer renders `01`, `02`, `03`, `04`, or `05` beneath treatment images.
+- [x] All treatment images, titles, links, CTA labels, and layout remain unchanged.
+- [x] All five treatment images use the same responsive container ratio and cover rendering.
+- [x] The removed banner does not leave unnecessary homepage treatment-section spacing.
+- [x] Typecheck passes; lint adds no new issues; tests green.
 
 ### Verification
 
@@ -52,8 +54,8 @@ Remove the banner markup and its dedicated styles, along with the treatment card
 ## Exact changes (file:line)
 
 1. **`src/components/public-homepage.tsx`** — remove the homepage intro-band section, chevron import, and treatment card number span.
-2. **`src/app/globals.css`** — remove the intro-band and card-index rules that no longer have markup.
-3. **`src/app/page.test.ts`** — add regression assertions for the removed homepage elements.
+2. **`src/app/globals.css`** — remove obsolete intro-band/card-index rules, remove the treatment section's leftover top spacing, and enforce full-size cover rendering for treatment images.
+3. **`src/app/page.test.ts`** — add regression assertions for the removed homepage elements and layout rules.
 
 **No change needed:** Treatment image mappings and card layout remain in place.
 
