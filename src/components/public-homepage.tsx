@@ -16,7 +16,6 @@ type Copy = {
     menu: string;
   };
   hero: {
-    eyebrow: string;
     title: string;
     text: string;
     primaryCta: string;
@@ -62,7 +61,6 @@ const copy: Record<Locale, Copy> = {
       menu: "Öppna meny",
     },
     hero: {
-      eyebrow: "Skönhet och välbefinnande",
       title: "Pro Clinic",
       text: "På Pro Clinic hittar du behandlingar för både skönhet och välbefinnande. Vi erbjuder allt från hudvård och massage till fotvård, fransar och bryn samt hårborttagning.",
       primaryCta: "Upptäck behandlingar",
@@ -110,7 +108,6 @@ const copy: Record<Locale, Copy> = {
       menu: "Open menu",
     },
     hero: {
-      eyebrow: "Beauty and wellbeing",
       title: "A calmer way to feel like yourself.",
       text: "Pro Clinic is a beauty and wellness salon with space for care, recovery and personal service.",
       primaryCta: "Explore treatments",
@@ -215,7 +212,6 @@ export function PublicHomepage({ locale }: { locale: Locale }) {
       <main>
         <section className="hero page-width">
           <div className="hero__content">
-            <p className="eyebrow">{content.hero.eyebrow}</p>
             <h1>{content.hero.title}</h1>
             <p className="hero__text">{content.hero.text}</p>
             <div className="button-row">

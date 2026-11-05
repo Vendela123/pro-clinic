@@ -29,6 +29,23 @@ describe("Pro Clinic homepage smoke test", () => {
     expect(styles).toContain(".treatment-card__image { display: block; width: 100%; height: 100%; object-fit: cover; }");
     expect(styles).not.toContain(".intro-band");
   });
+
+  it("uses the layered hero composition without the eyebrow", () => {
+    const homepageSource = readFileSync(
+      fileURLToPath(new URL("../components/public-homepage.tsx", import.meta.url)),
+      "utf8",
+    );
+    const styles = readFileSync(
+      fileURLToPath(new URL("./globals.css", import.meta.url)),
+      "utf8",
+    );
+
+    expect(homepageSource).not.toContain("content.hero.eyebrow");
+    expect(styles).not.toContain("border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent);");
+    expect(styles).toContain(".hero-visual::before");
+    expect(styles).toContain(".hero-visual__image");
+    expect(styles).toContain("object-fit: cover;");
+  });
 });
 
 describe("treatment area images", () => {
