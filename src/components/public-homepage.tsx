@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, ChevronDown, Menu } from "lucide-react";
+import { ArrowUpRight, Menu } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { TreatmentMenu } from "@/components/treatment-menu";
 import Image from "next/image";
@@ -235,20 +235,13 @@ export function PublicHomepage({ locale }: { locale: Locale }) {
           </div>     
         </section>
 
-        <section className="intro-band">
-          <div className="page-width intro-band__inner">
-            <p>{isSwedish ? "En tydlig början för dig som vill hitta rätt behandling och rätt kontaktväg." : "A clear starting point for finding the right treatment and the right way to get in touch."}</p>
-            <ChevronDown size={22} strokeWidth={1.4} />
-          </div>
-        </section>
-
         <section id="treatments" className="section page-width">
           <div className="section-heading section-heading--split">
             <div><p className="eyebrow">{content.treatmentSection.eyebrow}</p><h2>{content.treatmentSection.title}</h2></div>
             <p>{content.treatmentSection.text}</p>
           </div>
           <div className="treatment-grid">
-            {content.treatmentSection.cards.map((card, index) => (
+            {content.treatmentSection.cards.map((card) => (
               <Link className="treatment-card" href={card.href} key={card.name}>
                 <div className="treatment-card__visual">
                  {card.imageSrc ? (
@@ -263,7 +256,7 @@ export function PublicHomepage({ locale }: { locale: Locale }) {
                    />
                  ) : null}
                </div>
-                <div className="treatment-card__body"><span className="card-index">0{index + 1}</span><h3>{card.name}</h3><span className="treatment-card__cta">{content.treatmentSection.cta}<ArrowUpRight size={16} strokeWidth={1.7} /></span></div>
+                <div className="treatment-card__body"><h3>{card.name}</h3><span className="treatment-card__cta">{content.treatmentSection.cta}<ArrowUpRight size={16} strokeWidth={1.7} /></span></div>
               </Link>
             ))}
           </div>
