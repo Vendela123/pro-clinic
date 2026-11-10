@@ -51,7 +51,6 @@ const contactCopy = {
     phone: "Ring",
     sms: "Skicka SMS",
     phoneLabel: "Telefon",
-    smsLabel: "SMS",
   },
   en: {
     back: "Back to treatments",
@@ -62,7 +61,6 @@ const contactCopy = {
     phone: "Call",
     sms: "Send SMS",
     phoneLabel: "Phone",
-    smsLabel: "SMS",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -114,10 +112,6 @@ export function ContactPage({ locale }: { locale: Locale }) {
                     <div>
                       <dt>{content.phoneLabel}</dt>
                       <dd>{card.phone}</dd>
-                    </div>
-                    <div>
-                      <dt>{content.smsLabel}</dt>
-                      <dd>{card.sms}</dd>
                     </div>
                   </dl>
                 </article>

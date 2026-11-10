@@ -46,6 +46,48 @@ describe("Pro Clinic homepage smoke test", () => {
     expect(styles).toContain(".hero-visual__image");
     expect(styles).toContain("object-fit: cover;");
   });
+
+  it("uses localized booking CTA labels and scoped section spacing", () => {
+    const homepageSource = readFileSync(
+      fileURLToPath(new URL("../components/public-homepage.tsx", import.meta.url)),
+      "utf8",
+    );
+    const styles = readFileSync(
+      fileURLToPath(new URL("./globals.css", import.meta.url)),
+      "utf8",
+    );
+
+    expect(homepageSource).toContain('headerCta: "Boka här"');
+    expect(homepageSource).toContain('headerCta: "Book here"');
+    expect(homepageSource).toContain("content.navigation.headerCta");
+    expect(styles).toContain(".contact-person-card__services { margin-bottom: 28px; color: var(--muted); line-height: 1.7; }");
+    expect(styles).toContain(".contact-person-card__actions { margin-bottom: 24px; }");
+    expect(styles).toContain(".contact-person-card__actions .button + .button { margin-left: 12px; }");
+    expect(styles).toContain(".contact-person-card__details { margin: 0; }");
+    expect(styles).toContain(".offer-section__copy h2 { margin-bottom: 24px; }");
+    expect(styles).toContain(".offer-section__copy > h2 + p { margin-bottom: 20px; }");
+    expect(styles).toContain(".offer-section__copy .location-address { margin-bottom: 24px; }");
+  });
+
+  it("keeps contact staff sections readable and responsive", () => {
+    const contactSource = readFileSync(
+      fileURLToPath(new URL("../components/contact-page.tsx", import.meta.url)),
+      "utf8",
+    );
+    const styles = readFileSync(
+      fileURLToPath(new URL("./globals.css", import.meta.url)),
+      "utf8",
+    );
+
+    expect(contactSource).toContain("className=\"contact-person-grid\"");
+    expect(contactSource).toContain("className=\"contact-person-card\"");
+    expect(contactSource).not.toContain("content.smsLabel");
+    expect(contactSource).toContain("<dt>{content.phoneLabel}</dt>");
+    expect(styles).toContain("grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);");
+    expect(styles).toContain(".contact-section__intro, .contact-person-grid { min-width: 0; }");
+    expect(styles).toContain(".contact-person-card { min-width: 0; padding-bottom: 30px;");
+    expect(styles).toContain(".contact-person-card:last-child { padding-bottom: 0; border-bottom: 0; }");
+  });
 });
 
 describe("treatment area images", () => {
