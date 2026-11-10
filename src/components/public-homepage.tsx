@@ -13,6 +13,7 @@ type Copy = {
     about: string;
     offers: string;
     contact: string;
+    headerCta: string;
     menu: string;
   };
   hero: {
@@ -57,14 +58,15 @@ const copy: Record<Locale, Copy> = {
       treatments: "Behandlingar",
       about: "Om oss / Team",
       offers: "Hitta hit",
-      contact: "Kontakt",
+      contact: "Kontakt / Boka",
+      headerCta: "Boka här",
       menu: "Öppna meny",
     },
     hero: {
       title: "Pro Clinic",
       text: "På Pro Clinic hittar du behandlingar för både skönhet och välbefinnande. Vi erbjuder allt från hudvård och massage till fotvård, fransar och bryn samt hårborttagning.",
       primaryCta: "Upptäck behandlingar",
-      secondaryCta: "Kontakta salongen",
+      secondaryCta: "Boka behandling",
       visualLabel: "Visuell placeholder",
       visualNote: "Godkänd salongsbild läggs till senare",
     },
@@ -105,6 +107,7 @@ const copy: Record<Locale, Copy> = {
       about: "About / Team",
       offers: "Offers",
       contact: "Contact",
+      headerCta: "Book here",
       menu: "Open menu",
     },
     hero: {
@@ -195,7 +198,7 @@ export function PublicHomepage({ locale }: { locale: Locale }) {
 
           <div className="site-header__actions">
             <LanguageSwitcher locale={locale} />
-            <Link className="button button--dark button--small header-cta" href={contactHref}>{content.navigation.contact}</Link>
+            <Link className="button button--dark button--small header-cta" href={contactHref}>{content.navigation.headerCta}</Link>
             <details className="mobile-menu">
               <summary aria-label={content.navigation.menu}><Menu size={22} strokeWidth={1.6} /></summary>
               <nav aria-label={content.navigation.menu}>

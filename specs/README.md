@@ -35,3 +35,5 @@ Home page: hero section, featured treatments carousel, call-to-action buttons fo
 - [003 — Treatment area images](003-treatment-area-images.md) — Shows the matching existing treatment image on all Swedish and English treatment-area pages.
 - [004 — Homepage cleanup](004-homepage-cleanup.md) — Removes the homepage intro banner and treatment card number labels, aligns treatment images, and removes leftover banner spacing.
 - [005 — Homepage hero](005-homepage-hero.md) — Recreates the homepage hero’s arch-based image composition and removes the hero eyebrow/header border.
+- [006 — Contact spacing and booking CTA](006-contact-spacing.md) — Improves spacing on contact and Find Us sections and localizes the homepage booking CTA.
+- [007 — Contact staff layout](007-contact-layout.md) — Rebalances the contact page introduction and simplifies staff booking sections.
