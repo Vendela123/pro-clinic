@@ -49,6 +49,10 @@ type Copy = {
     placeholder: string;
     copyright: string;
   };
+  newsletter: {
+    title: string;
+    text: string;
+  };
 };
 
 const copy: Record<Locale, Copy> = {
@@ -98,6 +102,10 @@ const copy: Record<Locale, Copy> = {
       description: "Skönhets- och wellnessalong",
       placeholder: "Uggledalsvägen 15, 427 40 Billdal",
       copyright: "© Pro Clinic",
+    },
+    newsletter: {
+      title: "Få nyheter från Pro Clinic",
+      text: "Ta del av nyheter, inspiration och aktuella erbjudanden från oss.",
     },
   },
   en: {
@@ -171,6 +179,10 @@ const copy: Record<Locale, Copy> = {
       description: "Beauty and wellness salon",
       placeholder: "[Address and opening hours placeholder]",
       copyright: "© Pro Clinic",
+    },
+    newsletter: {
+      title: "Get news from Pro Clinic",
+      text: "Get news, inspiration and current offers from us.",
     },
   },
 };
@@ -328,6 +340,27 @@ export function PublicHomepage({ locale }: { locale: Locale }) {
 
 
       </main>
+
+      <section className="newsletter-section section" aria-labelledby="newsletter-title">
+        <div className="page-width newsletter-section__inner">
+          <div className="newsletter-section__heading">
+            <h2 id="newsletter-title">{content.newsletter.title}</h2>
+            <p>{content.newsletter.text}</p>
+          </div>
+          <div className="newsletter-section__form">
+            <iframe
+              title={content.newsletter.title}
+              width={540}
+              height={360}
+              src="https://0d469c56.sibforms.com/v2/serve/MUIFAE2tuyS4EmLhFc2sVEb-oNxX5i3y3AiMCKqoVQ7_Iyct-TytyehKjnd_BzZK0Gw1OZfVATN8yg4U3OoYtee093Vm63z91yjNZIp99dzAECKkfE9CAkkMGASZaT8gcFONjs4F2Fk_bPdaeGPGC2DSfEGb394KXW7wF8A_5tX-XZpfkKid2V3MEtWr08wVRjlt9e8nhUErM4RA9A=="
+              frameBorder="0"
+              scrolling="no"
+              allowFullScreen
+              style={{ display: "block", marginInline: "auto", maxWidth: "100%", background: "transparent" }}
+            />
+          </div>
+        </div>
+      </section>
 
       <footer className="site-footer">
         <div className="page-width site-footer__grid">

@@ -16,6 +16,23 @@ describe("Pro Clinic homepage smoke test", () => {
     expect(homepageSource).toContain('<span className="brand__name">Pro Clinic</span>');
   });
 
+  it("adds the localized Brevo newsletter section before the footer", () => {
+    const homepageSource = readFileSync(
+      fileURLToPath(new URL("../components/public-homepage.tsx", import.meta.url)),
+      "utf8",
+    );
+
+    expect(homepageSource).toContain('title: "Få nyheter från Pro Clinic"');
+    expect(homepageSource).toContain('text: "Ta del av nyheter, inspiration och aktuella erbjudanden från oss."');
+    expect(homepageSource).toContain('title: "Get news from Pro Clinic"');
+    expect(homepageSource).toContain('text: "Get news, inspiration and current offers from us."');
+    expect(homepageSource).toContain("https://0d469c56.sibforms.com/v2/serve/MUIFAE2tuyS4EmLhFc2sVEb-oNxX5i3y3AiMCKqoVQ7_Iyct-TytyehKjnd_BzZK0Gw1OZfVATN8yg4U3OoYtee093Vm63z91yjNZIp99dzAECKkfE9CAkkMGASZaT8gcFONjs4F2Fk_bPdaeGPGC2DSfEGb394KXW7wF8A_5tX-XZpfkKid2V3MEtWr08wVRjlt9e8nhUErM4RA9A==");
+    expect(homepageSource).toContain('scrolling="no"');
+    expect(homepageSource).toContain("height={360}");
+    expect(homepageSource).toContain('className="newsletter-section section"');
+    expect(homepageSource.indexOf('className="newsletter-section section"')).toBeLessThan(homepageSource.indexOf('<footer className="site-footer">'));
+  });
+
   it("contains the core brand and main intent", () => {
     expect("Pro Clinic").toContain("Pro");
     expect("Behandlingar").toContain("Be");

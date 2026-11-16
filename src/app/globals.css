@@ -269,6 +269,13 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -.02em; }
 .treatment-card:hover .treatment-card__cta, .site-footer__contact > a:hover { color: var(--accent); }
 
 .section--dark { background: var(--dark); color: #f1ede6; }
+.newsletter-section { padding-top: clamp(42px, 6vw, 64px); padding-bottom: clamp(56px, 7vw, 84px); background: var(--paper-deep); }
+.newsletter-section__inner { display: grid; justify-items: center; gap: 24px; text-align: center; }
+.newsletter-section__heading { max-width: 520px; }
+.newsletter-section__heading h2 { margin-bottom: 12px; }
+.newsletter-section__heading p { color: var(--muted); font-size: 14px; line-height: 1.8; }
+.newsletter-section__form { width: min(540px, 100%); max-width: 100%; overflow: hidden; }
+.newsletter-section__form iframe { display: block; width: 540px; height: 360px; max-width: 100%; margin-inline: auto; border: 0; background: transparent; }
 .why-grid { display: grid; grid-template-columns: .93fr 1fr; gap: clamp(52px, 10vw, 140px); align-items: center; }
 .why-visual { min-height: 550px; background: linear-gradient(145deg, #8a9184, #4f554c 55%, #c4b39e); }
 .why-visual__label { position: absolute; bottom: 27px; left: 27px; color: #f5f1eb; }
