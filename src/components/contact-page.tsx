@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, MessageCircle, Phone } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
 
@@ -73,7 +74,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
       <header className="site-header">
         <div className="site-header__inner page-width">
           <Link className="brand" href={isSwedish ? "/" : "/en/"} aria-label="Pro Clinic">
-            <span className="brand__mark">PC</span>
+            <Image className="brand__mark" src="/images/pro-clinic-logo.png" alt="" width={40} height={40} />
             <span className="brand__name">Pro Clinic</span>
           </Link>
           <LanguageSwitcher locale={locale} hrefs={{ sv: "/contact", en: "/en/contact" }} />

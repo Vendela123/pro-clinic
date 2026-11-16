@@ -37,3 +37,4 @@ Home page: hero section, featured treatments carousel, call-to-action buttons fo
 - [005 — Homepage hero](005-homepage-hero.md) — Recreates the homepage hero’s arch-based image composition and removes the hero eyebrow/header border.
 - [006 — Contact spacing and booking CTA](006-contact-spacing.md) — Improves spacing on contact and Find Us sections and localizes the homepage booking CTA.
 - [007 — Contact staff layout](007-contact-layout.md) — Rebalances the contact page introduction and simplifies staff booking sections.
+- [008 — Header logo image](008-header-logo.md) — Replaces the circular PC text mark with the supplied Pro Clinic logo asset while preserving brand text and header layout.

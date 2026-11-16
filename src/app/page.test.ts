@@ -4,6 +4,18 @@ import { describe, expect, it } from "vitest";
 import { treatmentAreaImages } from "../components/treatment-area-images";
 
 describe("Pro Clinic homepage smoke test", () => {
+  it("uses the supplied logo image next to the brand name", () => {
+    const homepageSource = readFileSync(
+      fileURLToPath(new URL("../components/public-homepage.tsx", import.meta.url)),
+      "utf8",
+    );
+
+    expect(homepageSource).toContain('src="/images/pro-clinic-logo.png"');
+    expect(homepageSource).toContain('width={40} height={40}');
+    expect(homepageSource).not.toContain('className="brand__mark">PC</span>');
+    expect(homepageSource).toContain('<span className="brand__name">Pro Clinic</span>');
+  });
+
   it("contains the core brand and main intent", () => {
     expect("Pro Clinic").toContain("Pro");
     expect("Behandlingar").toContain("Be");
