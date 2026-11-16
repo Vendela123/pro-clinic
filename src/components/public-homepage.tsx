@@ -185,7 +185,7 @@ export function PublicHomepage({ locale }: { locale: Locale }) {
       <header className="site-header">
         <div className="site-header__inner page-width">
           <Link className="brand" href={isSwedish ? "/" : "/en/"} aria-label="Pro Clinic">
-            <span className="brand__mark">PC</span>
+            <Image className="brand__mark" src="/images/pro-clinic-logo.png" alt="" width={40} height={40} />
             <span className="brand__name">Pro Clinic</span>
           </Link>
 
@@ -331,7 +331,7 @@ export function PublicHomepage({ locale }: { locale: Locale }) {
 
       <footer className="site-footer">
         <div className="page-width site-footer__grid">
-          <div><Link className="brand brand--footer" href={isSwedish ? "/" : "/en/"}><span className="brand__mark">PC</span><span className="brand__name">Pro Clinic</span></Link><p>{content.footer.description}</p><small>{content.footer.placeholder}</small></div>
+          <div><Link className="brand brand--footer" href={isSwedish ? "/" : "/en/"}><Image className="brand__mark" src="/images/pro-clinic-logo.png" alt="" width={40} height={40} /><span className="brand__name">Pro Clinic</span></Link><p>{content.footer.description}</p><small>{content.footer.placeholder}</small></div>
           <div className="site-footer__links"><a href="#treatments">{content.navigation.treatments}</a><a href="#about">{content.navigation.about}</a><a href="#offers">{content.navigation.offers}</a><Link href={contactHref}>{content.navigation.contact}</Link></div>
           <div className="site-footer__contact"><LanguageSwitcher locale={locale} /><Link href={contactHref}>{content.navigation.contact}<ArrowUpRight size={16} strokeWidth={1.6} /></Link></div>
         </div>

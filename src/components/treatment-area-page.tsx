@@ -221,7 +221,7 @@ export function TreatmentAreaPage({ locale, slug }: { locale: Locale; slug: Area
       <header className="site-header">
         <div className="site-header__inner page-width">
           <Link className="brand" href={isSwedish ? "/" : "/en/"} aria-label="Pro Clinic">
-            <span className="brand__mark">PC</span>
+            <Image className="brand__mark" src="/images/pro-clinic-logo.png" alt="" width={40} height={40} />
             <span className="brand__name">Pro Clinic</span>
           </Link>
           <div className="site-header__actions">
